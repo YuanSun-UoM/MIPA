@@ -1,0 +1,55 @@
+# =========================================================================
+# MATLAB TEMPORARY FILES AND CACHE
+# =========================================================================
+# Local MATLAB configuration cache
+.matlab/
+# Local command history (if saved in the project folder)
+History.xml
+# MATLAB autosave files (very common when editing .m files)
+*.asv
+# Platform-specific MEX binaries (compiled C/C++ code)
+*.glnxa64
+*.maci64
+*.w64
+*.mex*
+
+# =========================================================================
+# MATLAB PROJECTS AND SIMULINK (If using Project Tools or Simulink)
+# =========================================================================
+# Simulink cache and generated models directory
+slprj/
+# Simulink model cache files
+*.slxc
+# Code generation directories (MATLAB Coder / Simulink Coder)
+*_ert_rtw/
+*_grt_rtw/
+# Simulink autosave/backup files
+*.slx~
+*.mdl~
+
+# =========================================================================
+# COMPILED APPS AND GENERATED REPORTS
+# =========================================================================
+# Log files and profiler performance data
+*.log
+profile_data/
+# MATLAB Compiler outputs (Standalone executables/deployables)
+*.exe
+*.app
+*.dmg
+*.pkg
+
+# =========================================================================
+# DATASET AND RESULTS (Optional but highly recommended)
+# =========================================================================
+# Uncomment the line below if your .mat files are heavy datasets.
+# GitHub blocks files larger than 100MB.
+# *.mat
+
+# Common data interchange formats
+*.csv
+*.xlsx
+*.xls
+
+# macOS specific files
+.DS_Store

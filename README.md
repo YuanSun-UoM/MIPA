@@ -50,7 +50,7 @@ DOI = {10.3390/rs17162748}
 This code is released under the [CC-BY 4.0](LICENSE).
 
 ## Corresponding author  
-📌 **[G. D'Amico](https://orcid.org/0000-0002-1584-4631)**
+📌 **[G. D'Amico](https://orcid.org/0000-0001-6627-2517)**
 
 ## 🔧 Requirements  
 
