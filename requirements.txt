@@ -1,0 +1,6 @@
+# MIPA software requirements
+# This file lists the MATLAB version and toolboxes needed to run MIPA
+# Tested on MATLAB R2024b (24.2)
+
+MATLAB >= 24.2
+Image Processing Toolbox >= 24.2
