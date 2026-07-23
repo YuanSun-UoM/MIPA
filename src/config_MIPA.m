@@ -5,7 +5,7 @@ function cfg = config_MIPA()
     
     % Change with the name of the NetCDF file inside the folder data/input
 
-    cfg.filename = 'demo_chm15k'; 
+    cfg.filename = 'demo_lidar'; 
     
     % Specify the name of the NetCDF variable containing the input signal.
     % For user datasets this depends on the original product, whereas the
@@ -15,7 +15,7 @@ function cfg = config_MIPA()
     cfg.variable_filename = 'input_dataset';
     
     % Specify the type of measurement
-    cfg.measurement_tag = 'ceilometer'; % or 'ceilometer'.
+    cfg.measurement_tag = 'lidar'; % or 'ceilometer'.
 
     % Flag for displaying figures while running the code.     
     cfg.figures_disp_flag = 'false'; % Set to 'true' to display figures
@@ -26,8 +26,8 @@ function cfg = config_MIPA()
     % Fallback original vertical resolution; overwritten when available
     % from the NetCDF
 
-    % cfg.spatial_resolution = 3.75; % for lidar------------------------- [m]
-    cfg.spatial_resolution = 15; % for ceilometer-------------------- [m]
+    cfg.spatial_resolution = 3.75; % for lidar------------------------- [m]
+    % cfg.spatial_resolution = 15; % for ceilometer-------------------- [m]
 
     if strcmp(cfg.measurement_tag, 'lidar')
 
@@ -44,12 +44,16 @@ function cfg = config_MIPA()
     
     cfg.mov_avg_tag = 'box'; % ---------------------- Moving average kernel 
         % Start/stop analysis 
-    cfg.start_analysis_meters = 285; % -------------- Lower analysis limit [m]  
-    cfg.stop_analysis_meters  = 7000; % ------------- Upper analysis limit [m]  
+    cfg.start_analysis_meters = 200; % -------------- Lower analysis limit [m]  
+                                     % Use 285 for ceilometer data.
+    cfg.stop_analysis_meters  = 10000; % ------------ Upper analysis limit [m]
+                                       % Use 7000 for ceilometer data.
+                                       % Set to [] to disable altitude limits.
         
     % Radiometric normalization
     cfg.p_low = 0; % ------------------------------- Lower-limit percentile
-    cfg.p_high = 77; % ----------------------------- Upper-limit percentile 
+    cfg.p_high = 96; % ----------------------------- Upper-limit percentile 
+                     % Use 77 for ceilometer data
 
 
     % Pre-processing ------------------------------------------------------
@@ -89,11 +93,11 @@ function cfg = config_MIPA()
     % Object analysis -----------------------------------------------------
     
     cfg.delta_0 = 60;  % Euclidean-distance threshold in raw range bins
-    % cfg.th_ext_abl = 10;  % Euclidean-distance threshold expressed in down-sampled range bins (lidar case)
+    cfg.th_ext_abl = 10;  % Euclidean-distance threshold expressed in down-sampled range bins 
 
-    cfg.th_ext_abl = round(cfg.delta_0*cfg.spatial_red_factor); % ---
-                        % Euclidean-distance threshold expressed in
-                        % down-sampled range bins  (ceilometer case)
+    % cfg.th_ext_abl = round(cfg.delta_0*cfg.spatial_red_factor); % ---
+                        % Euclidean-distance threshold expression
+                        % for ceilometers data
                               
     cfg.w_ext_abl = 40;  % ----------- Temporal window dimension for ABLH extraction
     cfg.perc_null_abl_pxls = 0.2; % ----------- Percentage null ABLH pixels
