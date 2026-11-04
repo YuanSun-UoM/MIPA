@@ -5,17 +5,17 @@ function cfg = config_MIPA()
     
     % Change with the name of the NetCDF file inside the folder data/input
 
-    cfg.filename = 'demo_lidar'; 
+    cfg.filename = 'cl31_20261104'; 
     
     % Specify the name of the NetCDF variable containing the input signal.
     % For user datasets this depends on the original product, whereas the
     % demonstration NetCDF files always use the standardized variable
     % 'input_dataset'.
 
-    cfg.variable_filename = 'input_dataset';
+    cfg.variable_filename = 'rcs_0';
     
     % Specify the type of measurement
-    cfg.measurement_tag = 'lidar'; % or 'ceilometer'.
+    cfg.measurement_tag = 'ceilometer'; % 'lidar' or 'ceilometer'.
 
     % Flag for displaying figures while running the code.     
     cfg.figures_disp_flag = 'false'; % Set to 'true' to display figures
@@ -26,8 +26,8 @@ function cfg = config_MIPA()
     % Fallback original vertical resolution; overwritten when available
     % from the NetCDF
 
-    cfg.spatial_resolution = 3.75; % for lidar------------------------- [m]
-    % cfg.spatial_resolution = 15; % for ceilometer-------------------- [m]
+    % cfg.spatial_resolution = 3.75; % for lidar------------------------- [m]
+    cfg.spatial_resolution = 15; % 15 for ceilometer-------------------- [m]
 
     if strcmp(cfg.measurement_tag, 'lidar')
 
@@ -44,16 +44,20 @@ function cfg = config_MIPA()
     
     cfg.mov_avg_tag = 'box'; % ---------------------- Moving average kernel 
         % Start/stop analysis 
+    
     cfg.start_analysis_meters = 200; % -------------- Lower analysis limit [m]  
                                      % Use 285 for ceilometer data.
-    cfg.stop_analysis_meters  = 10000; % ------------ Upper analysis limit [m]
+                                     % Use 200 for lidar data.
+    cfg.stop_analysis_meters  = 5000; % ------------ Upper analysis limit [m]
                                        % Use 7000 for ceilometer data.
+                                       % Use 10000 for lidar data.
                                        % Set to [] to disable altitude limits.
         
     % Radiometric normalization
     cfg.p_low = 0; % ------------------------------- Lower-limit percentile
-    cfg.p_high = 96; % ----------------------------- Upper-limit percentile 
+    cfg.p_high = 77; % ----------------------------- Upper-limit percentile 
                      % Use 77 for ceilometer data
+                     % Use 96 for lidar data
 
 
     % Pre-processing ------------------------------------------------------
