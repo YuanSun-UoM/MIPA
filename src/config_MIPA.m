@@ -5,7 +5,7 @@ function cfg = config_MIPA()
     
     % Change with the name of the NetCDF file inside the folder data/input
 
-    cfg.filename = 'cl31_20261104'; 
+    cfg.filename = 'cl31_NUS_mipa'; 
     
     % Specify the name of the NetCDF variable containing the input signal.
     % For user datasets this depends on the original product, whereas the
@@ -45,9 +45,10 @@ function cfg = config_MIPA()
     cfg.mov_avg_tag = 'box'; % ---------------------- Moving average kernel 
         % Start/stop analysis 
     
-    cfg.start_analysis_meters = 200; % -------------- Lower analysis limit [m]  
+    cfg.start_analysis_meters = 50; % -------------- Lower analysis limit [m]  
                                      % Use 285 for ceilometer data.
                                      % Use 200 for lidar data.
+                                     % Set lower values locally if needed.
     cfg.stop_analysis_meters  = 5000; % ------------ Upper analysis limit [m]
                                        % Use 7000 for ceilometer data.
                                        % Use 10000 for lidar data.

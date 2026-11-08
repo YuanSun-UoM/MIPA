@@ -112,9 +112,9 @@ clc;
 here = pwd;
 aux_files_folder   = genpath(fullfile(here, 'aux_files'));  
 %input_data_folder  = fullfile(here, '..', 'data/input/');  
-input_data_folder  = fullfile('/Users/a16404ys/Desktop/script/mipa/data/input/');  
+input_data_folder  = fullfile('/Users/a16404ys/Desktop/YuanSun-UoM/job_NUS-CCRS/4_CL31_measurement/5_post-processing/scripts/retrieval/mipa/data/input');  
 %output_data_folder = fullfile(here, '..', 'data/output');  
-output_data_folder = fullfile('/Users/a16404ys/Desktop/script/mipa/data/output/');
+output_data_folder = fullfile('/Users/a16404ys/Desktop/YuanSun-UoM/job_NUS-CCRS/4_CL31_measurement/5_post-processing/scripts/retrieval/mipa/data/output');
 addpath(aux_files_folder);
 
 % [1] Import configuration parameters and load NetCDF file -----------------
