@@ -12,7 +12,7 @@ function cfg = config_MIPA()
     % demonstration NetCDF files always use the standardized variable
     % 'input_dataset'.
 
-    cfg.variable_filename = 'rcs_0';
+    cfg.variable_filename = 'beta_raw'; % either rcs_0 or beta_raw
     
     % Specify the type of measurement
     cfg.measurement_tag = 'ceilometer'; % 'lidar' or 'ceilometer'.
@@ -27,7 +27,7 @@ function cfg = config_MIPA()
     % from the NetCDF
 
     % cfg.spatial_resolution = 3.75; % for lidar------------------------- [m]
-    cfg.spatial_resolution = 15; % 15 for ceilometer-------------------- [m]
+    cfg.spatial_resolution = 10; % 15 for ceilometer-------------------- [m]
 
     if strcmp(cfg.measurement_tag, 'lidar')
 
@@ -49,7 +49,7 @@ function cfg = config_MIPA()
                                      % Use 285 for ceilometer data.
                                      % Use 200 for lidar data.
                                      % Set lower values locally if needed.
-    cfg.stop_analysis_meters  = 5000; % ------------ Upper analysis limit [m]
+    cfg.stop_analysis_meters  = 3000; % ------------ Upper analysis limit [m]
                                        % Use 7000 for ceilometer data.
                                        % Use 10000 for lidar data.
                                        % Set to [] to disable altitude limits.
@@ -127,7 +127,7 @@ function cfg = config_MIPA()
 
 
     % Fallback value; overwritten by surface_altitude read from the NetCDF
-    cfg.surface_altitude = 760; % measurement site altitude above sea level [m]
+    cfg.surface_altitude = 27.4; % measurement site altitude above sea level [m]
 
 
 end
